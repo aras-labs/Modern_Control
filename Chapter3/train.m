@@ -26,13 +26,15 @@ t=0:0.01:7; N=max(size(t));
 %   Initial response
 %
 x0=[20;20;20;20;20;0;0;0;0;0];
-[y,t,x]=initial(train_model, x0, t)
+[y,t,x]=initial(train_model, x0, t);
+
+
 plot(t,x(:,1),'k',t,x(:,5),'k-.'), grid
 set(findall(figure(1),'type','line'),'linewidth',2)
 xlabel('Time (sec)')
 ylabel('State variables')
 legend('x_1', 'x_5')
-break
+
 %
 %    A Simple way to generate input u
 %
@@ -40,16 +42,13 @@ u=0.1*(sin(5*t)+sin(9*t)+sin(13*t)+sin(17*t)+sin(21*t));
 %
 %    Simulate the system
 %
-[y,t,x]=lsim(active_suspension,u,t);
+[y,t,x]=lsim(train_model,u,t); % Changed 'active_suspension' to 'train_model'
 
 %  Plot the result
 % ---------------------------------------
-plot(t,x(:,1),'k',t,x(:,2),'k-.'), grid
-set(findall(figure(1),'type','line'),'linewidth',2)
+figure; % Create a new figure
+plot(t,x(:,1),'k',t,x(:,2),'k-.'), grid % Plot x1 and x2
+set(findall(figure(2),'type','line'),'linewidth',2) % Increase line width
 xlabel('Time (sec)')
 ylabel('State variables')
 legend('x_1', 'x_2')
-
-  
-
- 
