@@ -1,4 +1,5 @@
 # An Introduction to Modern Control 🎛️📚
+![mjahmadee](https://img.shields.io/badge/GitHub-mjahmadee-blue?logo=github)
 
 Welcome to the official repository for **"An Introduction to Modern Control"** by Prof. Hamid D. Taghirad. This repository contains MATLAB scripts and Simulink models that complement the textbook and provide practical insights into modern control theory and applications.
 
